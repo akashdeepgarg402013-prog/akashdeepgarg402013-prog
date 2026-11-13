@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
   <title id="title">Akashdeep — developer terminal</title>
-  <desc id="desc">Animated green binary rain. Java, C, JavaScript, HTML, CSS, React. Python next.</desc>
+  <desc id="desc">Akashdeep types in first. An Anonymous-style mask made entirely of binary digits then forms over animated binary rain.</desc>
 
   <defs>
+    <!-- Falling background numbers -->
     <pattern id="digits" width="40" height="360" patternUnits="userSpaceOnUse">
       <text x="20" y="0" fill="#16be55" font-family="monospace" font-size="14" letter-spacing="6" writing-mode="vertical-rl" style="text-orientation:upright">010011010110100101</text>
     </pattern>
@@ -17,6 +18,57 @@
       <stop stop-color="#00ff65" stop-opacity=".16"/>
       <stop offset="1" stop-color="#00ff65" stop-opacity="0"/>
     </radialGradient>
+
+    <!-- Numbers that form the mask -->
+    <pattern id="faceDigits" width="120" height="36" patternUnits="userSpaceOnUse">
+      <g fill="#57ed83" font-family="monospace" font-size="8" font-weight="600">
+        <text x="0" y="8" textLength="120" lengthAdjust="spacingAndGlyphs">0101100101011010010110101</text>
+        <text x="0" y="17" textLength="120" lengthAdjust="spacingAndGlyphs">1010011011010101101001100</text>
+        <text x="0" y="26" textLength="120" lengthAdjust="spacingAndGlyphs">0110101100101101001011010</text>
+        <text x="0" y="35" textLength="120" lengthAdjust="spacingAndGlyphs">1101001011010010110100101</text>
+      </g>
+    </pattern>
+
+    <radialGradient id="faceBackdrop">
+      <stop offset="0" stop-color="#030b07" stop-opacity="1"/>
+      <stop offset=".72" stop-color="#030b07" stop-opacity=".97"/>
+      <stop offset="1" stop-color="#030b07" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Face silhouette and dark facial cutouts -->
+    <mask id="binaryFace" maskUnits="userSpaceOnUse" x="-115" y="-130" width="230" height="270" style="mask-type:luminance">
+      <path fill="white" d="M-86-111Q0-133 86-111Q107-105 102-53L96 20Q89 75 47 110Q20 132 0 135Q-20 132-47 110Q-89 75-96 20L-102-53Q-107-105-86-111Z"/>
+
+      <g fill="black">
+        <!-- Eyebrows -->
+        <path d="M-89-57Q-51-78-18-42L-20-28Q-48-60-88-47Z M89-57Q51-78 18-42L20-28Q48-60 88-47Z"/>
+
+        <!-- Eyes -->
+        <path d="M-80-14Q-53-47-25-13Q-51 4-80-14Z M80-14Q53-47 25-13Q51 4 80-14Z"/>
+
+        <!-- Moustache -->
+        <path d="M-66 26Q-51 50-15 34Q0 26 15 34Q51 50 66 26Q53 67 17 58Q0 50-17 58Q-53 67-66 26Z"/>
+
+        <!-- Goatee -->
+        <path d="M-12 80Q0 87 12 80L8 120L0 133L-8 120Z"/>
+      </g>
+
+      <g fill="none" stroke="black" stroke-linecap="round">
+        <path d="M-15-10Q-11 10-23 20 M15-10Q11 10 23 20" stroke-width="4"/>
+        <path d="M-17 25Q0 33 17 25" stroke-width="3"/>
+        <path d="M-55 68Q0 89 55 68" stroke-width="5"/>
+        <path d="M-78 14Q-86 45-60 72 M78 14Q86 45 60 72" stroke-width="3"/>
+      </g>
+    </mask>
+
+    <!-- Animated reveal areas -->
+    <clipPath id="faceReveal">
+      <rect class="face-window" x="-115" y="-130" width="230" height="270"/>
+    </clipPath>
+
+    <clipPath id="nameReveal">
+      <rect class="name-window" x="158" y="128" width="335" height="78"/>
+    </clipPath>
 
     <clipPath id="frame">
       <rect width="1000" height="360" rx="16"/>
@@ -35,35 +87,117 @@
     .rain {
       animation: fall 10s linear infinite;
     }
+
     .slow {
       animation-duration: 16s;
       animation-delay: -7s;
       opacity: .45;
     }
+
     .fast {
       animation-duration: 7s;
       animation-delay: -3s;
       opacity: .65;
     }
-    .cursor {
-      animation: blink 1.1s steps(1) infinite;
+
+    .name-window {
+      animation: typing 2.2s steps(9, end) .3s both;
     }
+
+    .name-cursor {
+      transform: translateX(335px);
+      animation:
+        caret 2.2s steps(9, end) .3s both,
+        blink 1s steps(1) infinite;
+    }
+
+    .details {
+      animation: appear .8s ease 2.6s both;
+    }
+
+    .face-window {
+      animation: assemble 2.6s steps(30, end) 2.9s both;
+    }
+
+    .face-code {
+      animation: shimmer 4s ease-in-out 5.5s infinite;
+    }
+
+    .scanner {
+      opacity: 0;
+      animation: scan 2.6s linear 2.9s both;
+    }
+
     @keyframes fall {
       from { transform: translateY(-360px); }
-      to   { transform: translateY(0); }
+      to { transform: translateY(0); }
     }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 335px; }
+    }
+
+    @keyframes caret {
+      from { transform: translateX(0); }
+      to { transform: translateX(335px); }
+    }
+
     @keyframes blink {
       50% { opacity: 0; }
     }
+
+    @keyframes appear {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes assemble {
+      from { height: 0; }
+      to { height: 270px; }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: .85; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(0);
+        opacity: .8;
+      }
+      98% {
+        transform: translateY(265px);
+        opacity: .8;
+      }
+      100% {
+        transform: translateY(270px);
+        opacity: 0;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .rain, .cursor { animation: none; }
+      .rain,
+      .name-window,
+      .name-cursor,
+      .details,
+      .face-window,
+      .face-code,
+      .scanner {
+        animation: none !important;
+      }
+
+      .name-window { width: 335px; }
+      .face-window { height: 270px; }
+      .scanner { opacity: 0; }
     }
   </style>
 
   <g clip-path="url(#frame)">
     <rect width="1000" height="360" fill="#030b07"/>
 
-    <!-- Falling binary columns -->
+    <!-- Three speeds of falling binary rain -->
     <g fill="url(#digits)" opacity=".65">
       <g class="rain">
         <rect x="0" width="40" height="720"/>
@@ -112,40 +246,48 @@
       <circle cx="58" cy="24" r="4" opacity=".25"/>
     </g>
 
-    <!-- Your name and introduction -->
+    <!-- Name types in first -->
     <g font-family="monospace">
       <text x="80" y="29" fill="#89b89a" font-size="12">akashdeep@github: ~</text>
 
-      <text x="48" y="113" fill="#70ba8a" font-size="14" letter-spacing="3">// DEVELOPER TERMINAL</text>
+      <text class="details" x="48" y="113" fill="#70ba8a" font-size="14" letter-spacing="3">// DEVELOPER TERMINAL</text>
 
-      <text x="46" y="187" fill="#39ff7b" font-size="62" font-weight="700" filter="url(#glow)">&gt;_ AKASHDEEP</text>
+      <text x="46" y="187" fill="#39ff7b" font-size="62" font-weight="700">&gt;_</text>
 
-      <text x="50" y="226" fill="#defee7" font-size="20">Learn. Build. Debug. Repeat.</text>
+      <g clip-path="url(#nameReveal)">
+        <text x="158" y="187" fill="#39ff7b" font-size="62" font-weight="700" textLength="334.8" lengthAdjust="spacingAndGlyphs" filter="url(#glow)">AKASHDEEP</text>
+      </g>
 
-      <text x="50" y="271" fill="#8fc6a1" font-size="14">$ turning curiosity into code</text>
+      <rect class="name-cursor" x="160" y="140" width="4" height="51" fill="#39ff7b"/>
 
-      <rect class="cursor" x="307" y="258" width="9" height="16" fill="#39ff7b"/>
+      <text class="details" x="50" y="226" fill="#defee7" font-size="20">Learn. Build. Debug. Repeat.</text>
+
+      <text class="details" x="50" y="271" fill="#8fc6a1" font-size="14">$ turning curiosity into code</text>
 
       <text x="28" y="339" fill="#89b89a" font-size="12">JAVA / C / JAVASCRIPT / HTML / CSS / REACT</text>
 
       <text x="970" y="339" fill="#39ff7b" font-size="12" text-anchor="end">NEXT: PYTHON</text>
     </g>
 
-    <!-- Green wireframe -->
-    <g transform="translate(807 181) rotate(-25)" fill="none" stroke="#2bff77" stroke-width="1" opacity=".8">
-      <ellipse rx="128" ry="83"/>
-      <ellipse rx="128" ry="65"/>
-      <ellipse rx="128" ry="36"/>
-      <ellipse rx="128" ry="12"/>
-      <ellipse rx="99" ry="83"/>
-      <ellipse rx="65" ry="83"/>
-      <ellipse rx="25" ry="83"/>
-      <path d="M-128 0H128 M0-83V83"/>
+    <!-- Binary mask forms after the name -->
+    <ellipse class="details" cx="815" cy="179" rx="157" ry="147" fill="url(#faceBackdrop)"/>
+
+    <g transform="translate(815 174)">
+      <g mask="url(#binaryFace)">
+        <g clip-path="url(#faceReveal)">
+          <rect class="face-code" x="-115" y="-130" width="230" height="270" fill="url(#faceDigits)"/>
+        </g>
+
+        <rect class="scanner" x="-115" y="-130" width="230" height="1.2" fill="#aeffc6"/>
+      </g>
     </g>
 
-    <path d="M687 104H660L644 120H613 M897 251H924L941 234H980" fill="none" stroke="#2bff77" opacity=".7"/>
-    <circle cx="613" cy="120" r="3" fill="#39ff7b"/>
-    <circle cx="980" cy="234" r="3" fill="#39ff7b"/>
+    <!-- Circuit accents -->
+    <g class="details" fill="none" stroke="#2bff77" opacity=".7">
+      <path d="M712 107H670L651 126H615 M917 252H941L958 235H980"/>
+      <circle cx="615" cy="126" r="3" fill="#39ff7b"/>
+      <circle cx="980" cy="235" r="3" fill="#39ff7b"/>
+    </g>
   </g>
 
   <rect x=".5" y=".5" width="999" height="359" rx="16" fill="none" stroke="#24613a"/>
