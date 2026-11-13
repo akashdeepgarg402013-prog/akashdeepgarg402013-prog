@@ -1,74 +1,81 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:7c3aed,100:22d3ee&height=230&section=header&text=AKASHDEEP&fontSize=65&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=CODE.%20CREATE.%20EVOLVE.&descAlignY=60&descSize=20" alt="Akashdeep — Code. Create. Evolve." />
+<img width="100%" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=48&duration=3000&pause=1500&color=00FF41&background=0D1117&center=true&vCenter=true&width=1000&height=140&lines=%3E_+AKASHDEEP;%3E_+HELLO%2C+WORLD." alt="Akashdeep — Hello, world." />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=22D3EE&center=true&vCenter=true&width=650&lines=Java+%2F%2F+JavaScript+%2F%2F+React;Turning+ideas+into+something+real;Next+chapter%3A+Python" alt="Java, JavaScript, React. Next chapter: Python." width="650" />
-
-<br><br>
-
-[![GitHub](https://img.shields.io/badge/EXPLORE_MY_CODE-0D1117?style=for-the-badge&logo=github&logoColor=22D3EE)](https://github.com/akashdeepgarg402013-prog?tab=repositories)
-[![Stars](https://img.shields.io/badge/MY_INSPIRATION-0D1117?style=for-the-badge&logo=github&logoColor=A78BFA)](https://github.com/akashdeepgarg402013-prog?tab=stars)
-
-</div>
+<img width="100%" src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=2200&pause=1200&color=00FF41&background=0D1117&center=true&vCenter=true&width=1000&height=55&lines=Initializing+developer+mode...;Java+%7C+C+%7C+JavaScript+%7C+React;Next+module%3A+Python;Write.+Run.+Debug.+Repeat." alt="Java, C, JavaScript, React. Next module: Python." />
 
 <br>
 
-## `01` / THE DEVELOPER
+<a href="https://github.com/akashdeepgarg402013-prog?tab=repositories">
+  <img src="https://img.shields.io/badge/VIEW_SOURCE-0D1117?style=for-the-badge&logo=github&logoColor=00FF41" alt="View my repositories" />
+</a>
+<a href="https://github.com/akashdeepgarg402013-prog?tab=stars">
+  <img src="https://img.shields.io/badge/EXPLORE_MY_STARS-0D1117?style=for-the-badge&logo=github&logoColor=00FF41" alt="Explore my starred repositories" />
+</a>
+
+</div>
+
+---
+
+### `┌──[akashdeep@github]─[~]`
+### `└─$ whoami`
 
 ```text
-┌─ akashdeep@github
-│
-├─ languages    Java · C · JavaScript
-├─ web          HTML · CSS · React
-├─ next up      Python
-│
-└─ $ build something worth sharing_
+  NAME        Akashdeep
+  LANGUAGES   Java / C / JavaScript
+  WEB         HTML / CSS / React
+  NEXT UP     Python
+
+  > Stay curious.
+  > Understand the code.
+  > Build something of your own.
 ```
 
-<br>
+### `> ls ./toolkit`
 
-## `02` / THE TOOLKIT
+<p align="center">
+  <img src="https://img.shields.io/badge/JAVA-0D1117?style=for-the-badge&logo=openjdk&logoColor=00FF41" alt="Java" />
+  <img src="https://img.shields.io/badge/C-0D1117?style=for-the-badge&logo=c&logoColor=00FF41" alt="C" />
+  <img src="https://img.shields.io/badge/JAVASCRIPT-0D1117?style=for-the-badge&logo=javascript&logoColor=00FF41" alt="JavaScript" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-0D1117?style=for-the-badge&logo=html5&logoColor=00FF41" alt="HTML" />
+  <img src="https://img.shields.io/badge/CSS3-0D1117?style=for-the-badge&logo=css&logoColor=00FF41" alt="CSS" />
+  <img src="https://img.shields.io/badge/REACT-0D1117?style=for-the-badge&logo=react&logoColor=00FF41" alt="React" />
+</p>
+
+### `> cat next_mission.txt`
+
+```text
+  [ NEXT ]  Start learning Python.
+  [ BUILD ] Turn ideas into working projects.
+  [ SHARE ] Publish the code and the lessons.
+```
+
+### `> java Main`
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        String mindset = "Learn. Build. Debug. Repeat.";
+        System.out.println(mindset);
+    }
+}
+```
+
+### `> cd ./projects`
+
+My experiments and projects live in my repositories.
+
+**[Browse the source →](https://github.com/akashdeepgarg402013-prog?tab=repositories)**
+
+---
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=java,c,js&theme=dark&perline=3" alt="Java, C, JavaScript" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2500&pause=1800&color=00FF41&center=true&vCenter=true&width=600&lines=Every+expert+was+once+a+beginner.;Keep+the+terminal+open.+Keep+learning." alt="Every expert was once a beginner. Keep learning." width="600" />
 
-<br><br>
-
-<img src="https://skillicons.dev/icons?i=html,css,react&theme=dark&perline=3" alt="HTML, CSS, React" />
-
-<br><br>
-
-**NEXT TO UNLOCK**
-
-<img src="https://skillicons.dev/icons?i=python&theme=dark" alt="Python — learning next" />
-
-</div>
-
-<br>
-
-## `03` / THE BUILD LOG
-
-> Every finished project starts with an unfinished idea.
-
-My projects will live here as I build and publish them.
-
-**[Open the repositories →](https://github.com/akashdeepgarg402013-prog?tab=repositories)**
-
-<br>
-
-## `04` / THE COMMIT TRAIL
-
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=akashdeepgarg402013-prog&bg_color=0d1117&color=a78bfa&line=22d3ee&point=ffffff&area=true&hide_border=true" alt="Akashdeep's GitHub contribution activity" />
-
-<br>
-
-<div align="center">
-
-### LEARN IT. BUILD IT. MAKE IT BETTER.
-
-<sub>Java today. Python next. Always moving forward.</sub>
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:7c3aed,100:22d3ee&height=100&section=footer" alt="" />
+<sub>END OF FILE · MORE CODE TO COME</sub>
 
 </div>
