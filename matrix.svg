@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">Akashdeep — developer terminal</title>
+  <desc id="desc">Animated green binary rain. Java, C, JavaScript, HTML, CSS, React. Python next.</desc>
+
+  <defs>
+    <pattern id="digits" width="40" height="360" patternUnits="userSpaceOnUse">
+      <text x="20" y="0" fill="#16be55" font-family="monospace" font-size="14" letter-spacing="6" writing-mode="vertical-rl" style="text-orientation:upright">010011010110100101</text>
+    </pattern>
+
+    <linearGradient id="shade" x2="1" y2="0">
+      <stop stop-color="#030b07" stop-opacity=".75"/>
+      <stop offset=".65" stop-color="#030b07" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#030b07" stop-opacity=".1"/>
+    </linearGradient>
+
+    <radialGradient id="halo">
+      <stop stop-color="#00ff65" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#00ff65" stop-opacity="0"/>
+    </radialGradient>
+
+    <clipPath id="frame">
+      <rect width="1000" height="360" rx="16"/>
+    </clipPath>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .rain {
+      animation: fall 10s linear infinite;
+    }
+    .slow {
+      animation-duration: 16s;
+      animation-delay: -7s;
+      opacity: .45;
+    }
+    .fast {
+      animation-duration: 7s;
+      animation-delay: -3s;
+      opacity: .65;
+    }
+    .cursor {
+      animation: blink 1.1s steps(1) infinite;
+    }
+    @keyframes fall {
+      from { transform: translateY(-360px); }
+      to   { transform: translateY(0); }
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rain, .cursor { animation: none; }
+    }
+  </style>
+
+  <g clip-path="url(#frame)">
+    <rect width="1000" height="360" fill="#030b07"/>
+
+    <!-- Falling binary columns -->
+    <g fill="url(#digits)" opacity=".65">
+      <g class="rain">
+        <rect x="0" width="40" height="720"/>
+        <rect x="120" width="40" height="720"/>
+        <rect x="240" width="40" height="720"/>
+        <rect x="360" width="40" height="720"/>
+        <rect x="480" width="40" height="720"/>
+        <rect x="600" width="40" height="720"/>
+        <rect x="720" width="40" height="720"/>
+        <rect x="840" width="40" height="720"/>
+        <rect x="960" width="40" height="720"/>
+      </g>
+
+      <g class="rain slow">
+        <rect x="40" width="40" height="720"/>
+        <rect x="160" width="40" height="720"/>
+        <rect x="280" width="40" height="720"/>
+        <rect x="400" width="40" height="720"/>
+        <rect x="520" width="40" height="720"/>
+        <rect x="640" width="40" height="720"/>
+        <rect x="760" width="40" height="720"/>
+        <rect x="880" width="40" height="720"/>
+      </g>
+
+      <g class="rain fast">
+        <rect x="80" width="40" height="720"/>
+        <rect x="200" width="40" height="720"/>
+        <rect x="320" width="40" height="720"/>
+        <rect x="440" width="40" height="720"/>
+        <rect x="560" width="40" height="720"/>
+        <rect x="680" width="40" height="720"/>
+        <rect x="800" width="40" height="720"/>
+        <rect x="920" width="40" height="720"/>
+      </g>
+    </g>
+
+    <rect width="1000" height="360" fill="url(#shade)"/>
+    <ellipse cx="805" cy="185" rx="220" ry="190" fill="url(#halo)"/>
+
+    <!-- Terminal frame -->
+    <path d="M0 46H1000 M0 310H1000" stroke="#17432a"/>
+
+    <g fill="#31ff79">
+      <circle cx="26" cy="24" r="4"/>
+      <circle cx="42" cy="24" r="4" opacity=".5"/>
+      <circle cx="58" cy="24" r="4" opacity=".25"/>
+    </g>
+
+    <!-- Your name and introduction -->
+    <g font-family="monospace">
+      <text x="80" y="29" fill="#89b89a" font-size="12">akashdeep@github: ~</text>
+
+      <text x="48" y="113" fill="#70ba8a" font-size="14" letter-spacing="3">// DEVELOPER TERMINAL</text>
+
+      <text x="46" y="187" fill="#39ff7b" font-size="62" font-weight="700" filter="url(#glow)">&gt;_ AKASHDEEP</text>
+
+      <text x="50" y="226" fill="#defee7" font-size="20">Learn. Build. Debug. Repeat.</text>
+
+      <text x="50" y="271" fill="#8fc6a1" font-size="14">$ turning curiosity into code</text>
+
+      <rect class="cursor" x="307" y="258" width="9" height="16" fill="#39ff7b"/>
+
+      <text x="28" y="339" fill="#89b89a" font-size="12">JAVA / C / JAVASCRIPT / HTML / CSS / REACT</text>
+
+      <text x="970" y="339" fill="#39ff7b" font-size="12" text-anchor="end">NEXT: PYTHON</text>
+    </g>
+
+    <!-- Green wireframe -->
+    <g transform="translate(807 181) rotate(-25)" fill="none" stroke="#2bff77" stroke-width="1" opacity=".8">
+      <ellipse rx="128" ry="83"/>
+      <ellipse rx="128" ry="65"/>
+      <ellipse rx="128" ry="36"/>
+      <ellipse rx="128" ry="12"/>
+      <ellipse rx="99" ry="83"/>
+      <ellipse rx="65" ry="83"/>
+      <ellipse rx="25" ry="83"/>
+      <path d="M-128 0H128 M0-83V83"/>
+    </g>
+
+    <path d="M687 104H660L644 120H613 M897 251H924L941 234H980" fill="none" stroke="#2bff77" opacity=".7"/>
+    <circle cx="613" cy="120" r="3" fill="#39ff7b"/>
+    <circle cx="980" cy="234" r="3" fill="#39ff7b"/>
+  </g>
+
+  <rect x=".5" y=".5" width="999" height="359" rx="16" fill="none" stroke="#24613a"/>
+</svg>
