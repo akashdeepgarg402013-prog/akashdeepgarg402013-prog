@@ -1,167 +1,218 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="820" viewBox="0 0 1000 820" role="img" aria-labelledby="title desc">
-  <title id="title">Akashdeep's developer toolkit</title>
-  <desc id="desc">Java, C, JavaScript, HTML, CSS and React. Python is next on my learning list. An animated line connects idea, code, debug and repeat.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" role="img" aria-labelledby="title desc">
+  <title id="title">Akashdeep — Tech Stack and Contributions</title>
+  <desc id="desc">Scrolling Java, C, HTML, CSS, JavaScript, React and Python. GitHub contribution snapshot captured on 14 November 2026.</desc>
 
   <defs>
-    <linearGradient id="panel" x2="1" y2="1">
+    <linearGradient id="cardGradient" x2="1" y2="1">
       <stop stop-color="#0a2114"/>
       <stop offset="1" stop-color="#050e09"/>
     </linearGradient>
 
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#12331f" stroke-opacity=".35"/>
-    </pattern>
+    <clipPath id="stackWindow">
+      <rect x="32" y="58" width="936" height="76" rx="11"/>
+    </clipPath>
 
-    <g id="tile">
-      <rect width="442" height="116" rx="14" fill="url(#panel)" stroke="#245436"/>
-      <path class="corner" d="M1 30V14Q1 1 14 1H44 M398 115H428Q441 115 441 102V86" fill="none" stroke="#39ff7b" stroke-width="2"/>
+    <!-- Shared card background -->
+    <g id="card">
+      <rect width="120" height="76" rx="11"
+        fill="url(#cardGradient)" stroke="#245436"/>
     </g>
 
-    <g id="java" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round">
-      <path d="M-20-6H16V5Q16 18-2 18Q-20 18-20 5Z M16-3H23Q31-3 29 5Q27 12 17 12 M-25 25H23 M-11-15C-23-26 4-25-4-38 M3-15C-8-25 17-27 10-40"/>
+    <!-- Java icon -->
+    <g id="javaIcon" fill="none" stroke="#39ff7b"
+      stroke-width="2.7" stroke-linecap="round">
+      <path d="M-20-6H16V5Q16 18-2 18Q-20 18-20 5Z"/>
+      <path d="M16-3H23Q31-3 29 5Q27 12 17 12"/>
+      <path d="M-25 25H23"/>
+      <path d="M-11-15C-23-26 4-25-4-38"/>
+      <path d="M3-15C-8-25 17-27 10-40"/>
     </g>
 
-    <g id="react" fill="none" stroke="currentColor" stroke-width="2.4">
+    <!-- React icon -->
+    <g id="reactIcon" fill="none" stroke="#39ff7b" stroke-width="2.4">
       <ellipse rx="30" ry="11"/>
       <ellipse rx="30" ry="11" transform="rotate(60)"/>
       <ellipse rx="30" ry="11" transform="rotate(120)"/>
-      <circle r="4" fill="currentColor" stroke="none"/>
+      <circle r="4" fill="#39ff7b" stroke="none"/>
     </g>
+
+    <!-- One complete row; duplicated for seamless scrolling -->
+    <g id="techStack">
+
+      <g transform="translate(0 0)">
+        <use href="#card"/>
+        <use href="#javaIcon" transform="translate(60 28) scale(.48)"/>
+        <text x="60" y="64" class="tech-label">Java</text>
+      </g>
+
+      <g transform="translate(136 0)">
+        <use href="#card"/>
+        <text x="60" y="38" class="icon">C</text>
+        <text x="60" y="64" class="tech-label">C</text>
+      </g>
+
+      <g transform="translate(272 0)">
+        <use href="#card"/>
+        <text x="60" y="36" class="icon">&lt;/&gt;</text>
+        <text x="60" y="64" class="tech-label">HTML</text>
+      </g>
+
+      <g transform="translate(408 0)">
+        <use href="#card"/>
+        <text x="60" y="39" class="icon">#</text>
+        <text x="60" y="64" class="tech-label">CSS</text>
+      </g>
+
+      <g transform="translate(544 0)">
+        <use href="#card"/>
+        <rect x="45" y="13" width="30" height="30" rx="4" fill="#39ff7b"/>
+        <text x="60" y="35" fill="#030b07" font-size="19"
+          font-weight="700" text-anchor="middle">JS</text>
+        <text x="60" y="64" class="tech-label">JavaScript</text>
+      </g>
+
+      <g transform="translate(680 0)">
+        <use href="#card"/>
+        <use href="#reactIcon" transform="translate(60 28) scale(.58)"/>
+        <text x="60" y="64" class="tech-label">React</text>
+      </g>
+
+      <g transform="translate(816 0)">
+        <use href="#card"/>
+        <text x="60" y="37" class="icon">Py</text>
+        <text x="60" y="64" class="tech-label">Python</text>
+      </g>
+
+    </g>
+
+    <!-- Empty contribution squares -->
+    <pattern id="contributionGrid"
+      x="70" y="211" width="17" height="11"
+      patternUnits="userSpaceOnUse">
+      <rect width="13" height="8" rx="2" fill="#0d2115"/>
+    </pattern>
   </defs>
 
   <style>
     text {
       font-family: monospace;
     }
-    .label {
-      fill: #edfff2;
-      font-size: 34px;
+
+    .tech-label {
+      fill: #e5ffed;
+      font-size: 16px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+
+    .icon {
+      fill: #39ff7b;
+      font-size: 32px;
       font-weight: 700;
+      text-anchor: middle;
     }
-    .category {
+
+    .month {
       fill: #8cb99a;
-      font-size: 17px;
-      letter-spacing: 2px;
+      font-size: 11px;
     }
-    .corner {
-      animation: breathe 5s ease-in-out infinite;
-      animation-delay: var(--delay, 0s);
+
+    .marquee {
+      animation: scroll 30s linear infinite;
     }
-    .packet {
-      animation: travel 6s linear infinite;
-    }
-    .beacon {
-      animation: breathe 3s ease-in-out infinite;
-    }
-    @keyframes breathe {
-      0%, 100% { opacity: .4; }
-      50% { opacity: 1; }
-    }
-    @keyframes travel {
+
+    @keyframes scroll {
       from { transform: translateX(0); }
-      to { transform: translateX(720px); }
+      to { transform: translateX(-952px); }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .corner, .packet, .beacon { animation: none; }
+      .marquee {
+        animation: none;
+      }
     }
   </style>
 
-  <!-- Background -->
-  <rect x=".5" y=".5" width="999" height="819" rx="16" fill="#030b07" stroke="#245436"/>
-  <rect x="16" y="16" width="968" height="788" rx="12" fill="url(#grid)"/>
+  <!-- Main panel -->
+  <rect x=".5" y=".5" width="999" height="319" rx="16"
+    fill="#030b07" stroke="#245436"/>
 
-  <text x="44" y="57" fill="#39ff7b" font-size="18">01 /</text>
-  <text x="112" y="59" fill="#edfff2" font-size="30" font-weight="700">THE TOOLKIT</text>
-  <path d="M360 49H956" stroke="#245436"/>
-  <circle class="beacon" cx="952" cy="49" r="4" fill="#39ff7b"/>
+  <!-- Tech stack heading -->
+  <text x="32" y="35" fill="#39ff7b" font-size="17" font-weight="700">
+    // TECH STACK
+  </text>
 
-  <!-- Java -->
-  <g transform="translate(44 90)" style="--delay:0s">
-    <use href="#tile"/>
-    <use href="#java" transform="translate(62 61)" color="#39ff7b"/>
-    <text x="123" y="53" class="label">Java</text>
-    <text x="125" y="84" class="category">LANGUAGE</text>
+  <text x="968" y="35" fill="#81aa8d" font-size="12" text-anchor="end">
+    7 TOOLS / ALWAYS BUILDING
+  </text>
+
+  <!-- Animated horizontal row -->
+  <g clip-path="url(#stackWindow)">
+    <g transform="translate(32 58)">
+      <g class="marquee">
+        <use href="#techStack"/>
+        <use href="#techStack" x="952"/>
+      </g>
+    </g>
   </g>
 
-  <!-- C -->
-  <g transform="translate(514 90)" style="--delay:-1s">
-    <use href="#tile"/>
-    <path d="M61 28L87 43V73L61 88L35 73V43Z" fill="none" stroke="#39ff7b" stroke-width="2"/>
-    <text x="61" y="72" fill="#39ff7b" font-size="40" font-weight="700" text-anchor="middle">C</text>
-    <text x="123" y="53" class="label">C</text>
-    <text x="125" y="84" class="category">LANGUAGE</text>
+  <path d="M32 151H968" stroke="#193f28"/>
+
+  <!-- Contributions heading -->
+  <text x="32" y="176" fill="#39ff7b" font-size="17" font-weight="700">
+    // GITHUB CONTRIBUTIONS
+  </text>
+
+  <text x="968" y="176" fill="#b1d8bc" font-size="13" text-anchor="end">
+    5 contributions in the past year
+  </text>
+
+  <!-- Month labels -->
+  <g class="month">
+    <text x="70" y="198">Nov</text>
+    <text x="121" y="198">Dec</text>
+    <text x="189" y="198">Jan</text>
+    <text x="274" y="198">Feb</text>
+    <text x="342" y="198">Mar</text>
+    <text x="410" y="198">Apr</text>
+    <text x="478" y="198">May</text>
+    <text x="563" y="198">Jun</text>
+    <text x="631" y="198">Jul</text>
+    <text x="699" y="198">Aug</text>
+    <text x="784" y="198">Sep</text>
+    <text x="852" y="198">Oct</text>
   </g>
 
-  <!-- JavaScript -->
-  <g transform="translate(44 224)" style="--delay:-2s">
-    <use href="#tile"/>
-    <rect x="35" y="31" width="54" height="54" rx="7" fill="#39ff7b"/>
-    <text x="62" y="69" fill="#030b07" font-size="30" font-weight="700" text-anchor="middle">JS</text>
-    <text x="123" y="53" class="label">JavaScript</text>
-    <text x="125" y="84" class="category">LANGUAGE</text>
+  <!-- Weekday labels -->
+  <g fill="#8cb99a" font-size="10">
+    <text x="32" y="230">Mon</text>
+    <text x="32" y="252">Wed</text>
+    <text x="32" y="274">Fri</text>
   </g>
 
-  <!-- HTML -->
-  <g transform="translate(514 224)" style="--delay:-3s">
-    <use href="#tile"/>
-    <path d="M48 42L30 58L48 74 M76 42L94 58L76 74 M68 35L56 81" fill="none" stroke="#39ff7b" stroke-width="3"/>
-    <text x="123" y="53" class="label">HTML</text>
-    <text x="125" y="84" class="category">MARKUP</text>
-  </g>
+  <!-- 53-week contribution grid -->
+  <rect x="70" y="211" width="897" height="74"
+    fill="url(#contributionGrid)"/>
 
-  <!-- CSS -->
-  <g transform="translate(44 358)" style="--delay:-4s">
-    <use href="#tile"/>
-    <text x="62" y="78" fill="#39ff7b" font-size="62" text-anchor="middle">#</text>
-    <text x="123" y="53" class="label">CSS</text>
-    <text x="125" y="84" class="category">STYLING</text>
-  </g>
+  <!-- Five contributions on 13 November 2026 -->
+  <rect x="954" y="266" width="13" height="8" rx="2" fill="#39ff7b"/>
 
-  <!-- React -->
-  <g transform="translate(514 358)" style="--delay:-5s">
-    <use href="#tile"/>
-    <use href="#react" transform="translate(62 58)" color="#39ff7b"/>
-    <text x="123" y="53" class="label">React</text>
-    <text x="125" y="84" class="category">UI LIBRARY</text>
-  </g>
+  <!-- Day beyond the fetched calendar -->
+  <rect x="954" y="277" width="13" height="8" fill="#030b07"/>
 
-  <!-- Python: learning next -->
-  <g transform="translate(44 506)">
-    <rect width="912" height="142" rx="14" fill="url(#panel)" stroke="#337a4b"/>
-    <rect width="5" height="104" x="0" y="19" rx="2" fill="#39ff7b"/>
+  <!-- Snapshot date -->
+  <text x="70" y="307" fill="#81aa8d" font-size="11">
+    SNAPSHOT · 14 NOV 2026
+  </text>
 
-    <rect x="27" y="36" width="70" height="70" rx="14" fill="#102c1a" stroke="#245436"/>
-    <text x="62" y="84" fill="#39ff7b" font-size="34" font-weight="700" text-anchor="middle">Py</text>
+  <!-- Contribution legend -->
+  <text x="800" y="307" fill="#81aa8d" font-size="11">Less</text>
 
-    <text x="125" y="37" class="category">02 / NEXT MODULE</text>
-    <text x="123" y="81" class="label">Python</text>
-    <text x="125" y="113" fill="#b0d5bc" font-size="22">Next on my learning list.</text>
+  <rect x="838" y="298" width="13" height="9" rx="2" fill="#0d2115"/>
+  <rect x="856" y="298" width="13" height="9" rx="2" fill="#12492a"/>
+  <rect x="874" y="298" width="13" height="9" rx="2" fill="#197c40"/>
+  <rect x="892" y="298" width="13" height="9" rx="2" fill="#28b65d"/>
+  <rect x="910" y="298" width="13" height="9" rx="2" fill="#39ff7b"/>
 
-    <rect x="728" y="50" width="151" height="42" rx="21" fill="#39ff7b"/>
-    <text x="803" y="77" fill="#030b07" font-size="20" font-weight="700" text-anchor="middle">UP NEXT</text>
-  </g>
-
-  <!-- Animated development loop -->
-  <text x="44" y="692" fill="#8cb99a" font-size="17" letter-spacing="2">03 / THE BUILD LOOP</text>
-
-  <path d="M140 730H860" fill="none" stroke="#245436" stroke-width="2"/>
-
-  <g fill="#0c2114" stroke="#39ff7b" stroke-width="2">
-    <circle cx="140" cy="730" r="6"/>
-    <circle cx="380" cy="730" r="6"/>
-    <circle cx="620" cy="730" r="6"/>
-    <circle cx="860" cy="730" r="6"/>
-  </g>
-
-  <g class="packet" fill="#39ff7b">
-    <circle cx="140" cy="730" r="12" opacity=".13"/>
-    <circle cx="140" cy="730" r="5"/>
-  </g>
-
-  <g fill="#edfff2" font-size="24" text-anchor="middle">
-    <text x="140" y="774">IDEA</text>
-    <text x="380" y="774">CODE</text>
-    <text x="620" y="774">DEBUG</text>
-    <text x="860" y="774">REPEAT</text>
-  </g>
+  <text x="934" y="307" fill="#81aa8d" font-size="11">More</text>
 </svg>
