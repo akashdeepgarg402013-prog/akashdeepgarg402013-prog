@@ -1,131 +1,26 @@
-
-    <clipPath id="stackWindow">
-      <rect x="32" y="58" width="936" height="76" rx="11" />
-    </clipPath>
-
-    
-    <g id="card">
-      <rect width="120" height="76" rx="11" fill="url(#cardGradient)" stroke="#245436" />
-    </g>
-
-    
-    <g id="javaIcon" fill="none" stroke="#39ff7b" stroke-width="2.7" stroke-linecap="round">
-      <path d="M-20-6H16V5Q16 18-2 18Q-20 18-20 5Z" />
-      <path d="M16-3H23Q31-3 29 5Q27 12 17 12" />
-      <path d="M-25 25H23" />
-      <path d="M-11-15C-23-26 4-25-4-38" />
-      <path d="M3-15C-8-25 17-27 10-40" />
-    </g>
-
-    
-    <g id="reactIcon" fill="none" stroke="#39ff7b" stroke-width="2.4">
-      <ellipse rx="30" ry="11" />
-      <ellipse rx="30" ry="11" transform="rotate(60)" />
-      <ellipse rx="30" ry="11" transform="rotate(120)" />
-      <circle r="4" fill="#39ff7b" stroke="none" />
-    </g>
-
-    
-    <g id="techStack">
-
-      <g transform="translate(0 0)">
-        <use href="#card" />
-        <use href="#javaIcon" transform="translate(60 28) scale(.48)" />
-        <text x="60" y="64" class="tech-label">Java</text>
-      </g>
-
-      <g transform="translate(136 0)">
-        <use href="#card" />
-        <text x="60" y="38" class="icon">C</text>
-        <text x="60" y="64" class="tech-label">C</text>
-      </g>
-
-      <g transform="translate(272 0)">
-        <use href="#card" />
-        <text x="60" y="36" class="icon">&lt;/&gt;</text>
-        <text x="60" y="64" class="tech-label">HTML</text>
-      </g>
-
-      <g transform="translate(408 0)">
-        <use href="#card" />
-        <text x="60" y="39" class="icon">#</text>
-        <text x="60" y="64" class="tech-label">CSS</text>
-      </g>
-
-      <g transform="translate(544 0)">
-        <use href="#card" />
-        <rect x="45" y="13" width="30" height="30" rx="4" fill="#39ff7b" />
-        <text x="60" y="35" fill="#030b07" font-size="19" font-weight="700" text-anchor="middle">JS</text>
-        <text x="60" y="64" class="tech-label">JavaScript</text>
-      </g>
-
-      <g transform="translate(680 0)">
-        <use href="#card" />
-        <use href="#reactIcon" transform="translate(60 28) scale(.58)" />
-        <text x="60" y="64" class="tech-label">React</text>
-      </g>
-
-      <g transform="translate(816 0)">
-        <use href="#card" />
-        <text x="60" y="37" class="icon">Py</text>
-        <text x="60" y="64" class="tech-label">Python</text>
-      </g>
-
-    </g>
-
-    
-    <pattern id="contributionGrid" x="70" y="211" width="17" height="11" patternUnits="userSpaceOnUse">
-      <rect width="13" height="8" rx="2" fill="#0d2115" />
-    </pattern>
-  </defs>
-
-  <style>
-    text {
-      font-family: monospace;
-    }
-
-    .tech-label {
-      fill: #e5ffed;
-      font-size: 16px;
-      font-weight: 600;
-      text-anchor: middle;
-    }
-
-    .icon {
-      fill: #39ff7b;
-      font-size: 32px;
-      font-weight: 700;
-      text-anchor: middle;
-    }
-
-    .month {
-      fill: #8cb99a;
-      font-size: 11px;
-    }
-
-    .marquee {
-      animation: scroll 30s linear infinite;
-    }
-
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-952px); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .marquee {
-        animation: none;
-      }
-    }
-  </style>
-
-  
-  <rect x=".5" y=".5" width="999" height="319" rx="16" fill="#030b07" stroke="#245436" /><text x="32" y="35" fill="#39ff7b" font-size="17" font-family="monospace" font-weight="700">// TECH STACK</text><text x="968" y="35" fill="#8cb99a" font-size="12" font-family="monospace" text-anchor="end">7 TOOLS / ALWAYS BUILDING</text><g clip-path="url(#stackWindow)">
-    <g transform="translate(32 58)">
-      <g class="marquee">
-        <use href="#techStack" />
-        <use href="#techStack" x="952" />
-      </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="130" viewBox="0 0 800 130" role="img" aria-label="Tech stack: Java, C, JavaScript, HTML, CSS, React. Learning next: Python." xmlns:c2pa="http://c2pa.org/manifest">
+<defs>
+  <linearGradient id="ts-fade" x1="0" x2="1" y1="0" y2="0">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="0.07" stop-color="#fff"/>
+    <stop offset="0.93" stop-color="#fff"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <mask id="ts-mask"><rect x="16" y="44" width="768" height="42" fill="url(#ts-fade)"/></mask>
+  <filter id="ts-glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="1.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="800" height="130" rx="10" fill="#030B07" stroke="#39FF7B" stroke-opacity="0.35"/>
+<text x="16" y="26" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="bold">&gt; tech_stack.sh</text>
+<text x="728" y="26" fill="#7fbf99" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="end">learning next &#8594;</text>
+<text x="784" y="26" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="end">Python<animate attributeName="fill-opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/></text>
+<g mask="url(#ts-mask)" filter="url(#ts-glow)">
+  <g transform="translate(16,48)">
+    <animateTransform attributeName="transform" type="translate" from="16 48" to="-479 48" dur="18s" repeatCount="indefinite"/>
+    <g transform="translate(0,0)"><rect width="64" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="32.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">Java</text></g><g transform="translate(78,0)"><rect width="37" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="18.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">C</text></g><g transform="translate(129,0)"><rect width="118" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="59.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">JavaScript</text></g><g transform="translate(261,0)"><rect width="64" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="32.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">HTML</text></g><g transform="translate(339,0)"><rect width="55" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="27.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">CSS</text></g><g transform="translate(408,0)"><rect width="73" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="36.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">React</text></g><g transform="translate(495,0)"><rect width="64" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="32.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">Java</text></g><g transform="translate(573,0)"><rect width="37" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="18.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">C</text></g><g transform="translate(624,0)"><rect width="118" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="59.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">JavaScript</text></g><g transform="translate(756,0)"><rect width="64" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="32.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">HTML</text></g><g transform="translate(834,0)"><rect width="55" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="27.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">CSS</text></g><g transform="translate(903,0)"><rect width="73" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="36.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">React</text></g><g transform="translate(990,0)"><rect width="64" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="32.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">Java</text></g><g transform="translate(1068,0)"><rect width="37" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="18.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">C</text></g><g transform="translate(1119,0)"><rect width="118" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="59.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">JavaScript</text></g><g transform="translate(1251,0)"><rect width="64" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="32.0" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">HTML</text></g><g transform="translate(1329,0)"><rect width="55" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="27.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">CSS</text></g><g transform="translate(1398,0)"><rect width="73" height="34" rx="8" fill="#07140d" stroke="#39FF7B" stroke-opacity="0.55"/><text x="36.5" y="22" fill="#39FF7B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">React</text></g>
   </g>
-
+</g>
+<text x="16" y="112" fill="#7fbf99" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">idea &#8594; code &#8594; debug &#8594; repeat<tspan fill="#39FF7B">_<animate attributeName="fill-opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpjNTRkMGRhZS1kZmRkLTRmYmQtYjU1MC05NWI3NTQwODJkZDAAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaB2qWY6T76XTig+27iH+l8UAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpmNjUyMjIzYy01YzM2LTQ3ZWUtYjU2Ni0yZjA4OTM2NzJjMmVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoeyCXMR7yJCj1jsRPjPRf0wAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg7fzGcpR/1S9epH+vDYMos8bG7ibu9y8iEO3lOCOw7rSkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaNqnT87QJ0FkHvJVBh3IhVYAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYICpilIHPbc624dQTQ8PClpA+EPDNQBn93XtotImtRDPhZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GR1PZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmM1NGQwZGFlLWRmZGQtNGZiZC1iNTUwLTk1Yjc1NDA4MmRkMC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjdmNWE5YzA5LWM5MGQtNDA4Yy1iYjcwLTVhOTlhM2M5NGI5ZnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDt/MZylH/VL16kf68NgyizxsbuJu73LyIQ7eU4I7DutKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggCFdP+6YzF/J9C613ZTr/mMM/oEpX02/Dv9jey4Gt+/CiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggcaI4zQC5QPTvpSYDhUcOx6PkN4FlG+vngKsQt8Ij9+d0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQGAQB3qls23EZfZtjqfgHAot+3ZMX3V08961uW07cBKdvHoR/ZDLiDGXhqEKkJ6SfA0RtQMpUjSgbu03a5/hggw=</c2pa:manifest></metadata></svg>
