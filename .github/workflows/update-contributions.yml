@@ -1,0 +1,245 @@
+name: Update GitHub contributions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */12 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-contributions.yml'
+      - 'dashboard.svg'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-contributions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Update SVG from GitHub data
+        run: |
+          python - <<'PYTHON'
+          import os, re, copy, tempfile
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from datetime import date, timedelta
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Calendar(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.days, self.tips = {}, {}
+                  self.tip, self.parts = None, []
+
+              def handle_starttag(self, tag, attrs):
+                  a = dict(attrs)
+                  if tag == 'td' and 'data-date' in a:
+                      day = date.fromisoformat(a['data-date'])
+                      if day in self.days:
+                          raise ValueError('Duplicate calendar date')
+                      self.days[day] = (int(a['data-level']), a['id'])
+                  if tag == 'tool-tip':
+                      self.tip, self.parts = a.get('for'), []
+
+              def handle_data(self, data):
+                  if self.tip:
+                      self.parts.append(data)
+
+              def handle_endtag(self, tag):
+                  if tag == 'tool-tip' and self.tip:
+                      self.tips[self.tip] = ''.join(self.parts).strip()
+                      self.tip = None
+
+          def build(html, source):
+              calendar = Calendar()
+              calendar.feed(html)
+              dates = sorted(calendar.days)
+
+              if not 350 <= len(dates) <= 380:
+                  raise ValueError('Incomplete calendar; previous SVG preserved')
+
+              days = []
+              for i, day in enumerate(dates):
+                  level, element_id = calendar.days[day]
+                  tip = calendar.tips.get(element_id, '')
+                  match = re.match(r'(No|[\d,]+) contributions?\b', tip)
+
+                  if not match or level not in range(5):
+                      raise ValueError('Unrecognized data; previous SVG preserved')
+
+                  if i and day - dates[i - 1] != timedelta(days=1):
+                      raise ValueError('Missing calendar date')
+
+                  count = 0 if match[1] == 'No' else int(match[1].replace(',', ''))
+                  days.append((day, level, count))
+
+              ns = '{http://www.w3.org/2000/svg}'
+              ET.register_namespace('', ns[1:-1])
+              old = ET.fromstring(source)
+
+              rows = [
+                  g for g in old.findall(ns + 'g')
+                  if any('marquee' in e.get('class', '').split() for e in g.iter())
+              ]
+
+              if len(rows) != 1:
+                  raise ValueError('Use the short scrolling dashboard.svg first')
+
+              root = ET.Element(
+                  ns + 'svg',
+                  width='1000',
+                  height='320',
+                  viewBox='0 0 1000 320',
+                  role='img'
+              )
+
+              def add(tag, parent=root, **attrs):
+                  return ET.SubElement(
+                      parent, ns + tag,
+                      {k: str(v) for k, v in attrs.items()}
+                  )
+
+              def text(x, y, value, size=11, color='#8cb99a', parent=root, **attrs):
+                  element = add(
+                      'text', parent, x=x, y=y, fill=color,
+                      **{'font-size': size, 'font-family': 'monospace', **attrs}
+                  )
+                  element.text = value
+
+              add('title').text = 'Akashdeep — tech stack and GitHub contributions'
+
+              for child in old:
+                  if child.tag in (ns + 'defs', ns + 'style'):
+                      root.append(copy.deepcopy(child))
+
+              add(
+                  'rect', x='.5', y='.5', width=999, height=319, rx=16,
+                  fill='#030b07', stroke='#245436'
+              )
+
+              text(
+                  32, 35, '// TECH STACK', 17, '#39ff7b',
+                  **{'font-weight': 700}
+              )
+              text(
+                  968, 35, '7 TOOLS / ALWAYS BUILDING', 12,
+                  **{'text-anchor': 'end'}
+              )
+
+              root.append(copy.deepcopy(rows[0]))
+
+              graph = add('g', id='github-contributions')
+              add('path', graph, d='M32 151H968', stroke='#193f28')
+
+              text(
+                  32, 176, '// GITHUB CONTRIBUTIONS', 17, '#39ff7b', graph,
+                  **{'font-weight': 700}
+              )
+
+              total = sum(count for _, _, count in days)
+              text(
+                  968, 176, f'{total:,} contributions in the past year',
+                  13, '#b1d8bc', graph, **{'text-anchor': 'end'}
+              )
+
+              start = dates[0] - timedelta(days=(dates[0].weekday() + 1) % 7)
+              columns = (dates[-1] - start).days // 7 + 1
+              pitch = min(17, 898 / columns)
+
+              colors = [
+                  '#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'
+              ]
+
+              last_month = None
+
+              for day, level, count in days:
+                  column, row = divmod((day - start).days, 7)
+                  x = 70 + column * pitch
+
+                  if (day.year, day.month) != last_month:
+                      if column < columns - 2:
+                          text(
+                              round(x, 2), 198, day.strftime('%b'),
+                              parent=graph
+                          )
+                      last_month = (day.year, day.month)
+
+                  square = add(
+                      'rect', graph,
+                      x=round(x, 2), y=211 + row * 11,
+                      width=round(pitch - 4, 2),
+                      height=8, rx=2, fill=colors[level]
+                  )
+                  add('title', square).text = f'{day}: {count} contributions'
+
+              for label, y in [('Mon', 230), ('Wed', 252), ('Fri', 274)]:
+                  text(32, y, label, 10, parent=graph)
+
+              text(70, 307, 'GitHub contribution data', parent=graph)
+              text(800, 307, 'Less', parent=graph)
+
+              for i, color in enumerate(colors):
+                  add(
+                      'rect', graph,
+                      x=838 + i * 18, y=298,
+                      width=13, height=9, rx=2, fill=color
+                  )
+
+              text(934, 307, 'More', parent=graph)
+              return ET.tostring(root, encoding='unicode') + '\n'
+
+          owner = os.environ['GITHUB_REPOSITORY_OWNER']
+          request = urllib.request.Request(
+              f'https://github.com/users/{owner}/contributions',
+              headers={
+                  'User-Agent': 'GitHub-profile-calendar',
+                  'Accept-Language': 'en-US'
+              }
+          )
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              html = response.read().decode('utf-8')
+
+          target = Path('dashboard.svg')
+          original = target.read_text(encoding='utf-8')
+          result = build(html, original)
+          ET.fromstring(result)
+
+          if result != original:
+              with tempfile.NamedTemporaryFile(
+                  mode='w', dir=target.parent,
+                  encoding='utf-8', delete=False
+              ) as f:
+                  f.write(result)
+                  temporary = f.name
+
+              os.replace(temporary, target)
+
+          print('GitHub contribution calendar updated successfully.')
+          PYTHON
+
+      - name: Save updated calendar
+        run: |
+          if git diff --quiet -- dashboard.svg; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dashboard.svg
+          git commit -m 'Update GitHub contribution calendar'
+          git pull --rebase origin main
+          git push origin HEAD:main
